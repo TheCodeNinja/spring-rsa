@@ -1,0 +1,49 @@
+Configutation:
+  name: Default
+#  Properties:
+#    Property:
+#      name: log-path
+#      value: "/Users/mario_ninja/Desktop/my-dev/test/logs2"
+  Appenders:
+    Console:
+      name: Console_Appender
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "%highlight{[%-5level]} %blue{%d{yyyy-MM-dd HH:mm:ss.SSS}} %red{[%t]} %green{%c{1}} - %msg%n"
+#    File:
+#      name: File_Appender
+#      fileName: ${log-path}/testLogFile.log
+#      PatternLayout:
+#        pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+#    RollingFile:
+#      - name: RollingFile_Appender
+#        fileName: ${log-path}/testLogRollingFile.log
+#        filePattern: "logs/archive/testLogRollingFile-%d{yyyy-MM-dd-hh-mm}-%i.log.gz"
+#        PatternLayout:
+#          pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+#        Policies:
+##          time-based
+##          TimeBasedTriggeringPolicy:
+##            modulate: true
+##            interval: 1
+##          size-based
+#          SizeBasedTriggeringPolicy:
+#            size: 1 KB
+#        DefaultRollOverStrategy: # 文件保留最多的數量
+#          max: 30
+  Loggers:
+    Root:
+      level: info
+      AppenderRef:
+        - ref: Console_Appender
+    Logger:
+      - name: com.codedev
+        additivity: false
+        level: info
+        AppenderRef:
+          - ref: Console_Appender
+#            level: info
+#          - ref: File_Appender
+#            level: info
+#          - ref: RollingFile_Appender
+#            level: debug
